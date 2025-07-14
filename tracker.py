@@ -2,8 +2,11 @@ import json
 import datetime
 
 def add_habit(habit, desc):
-    with open('habit.json', 'r') as f:
-        habits = json.load(f)
+    try:
+        with open('habit.json', 'r') as f:
+            habits = json.load(f)
+    except json.decoder.JSONDecodeError:
+        habits = {}
     new_habit = {len(habits):{
         "habit":habit,
         "description":desc,
@@ -12,4 +15,16 @@ def add_habit(habit, desc):
     habits.update(new_habit)
     with open('habit.json', 'w') as f:
         json.dump(habits, f, indent=4)
-    
+
+def delete_habit(delhabit):
+    habits = {}
+    with open('habit.json', 'r') as f:
+        habits = json.load(f)
+    keytodelete = 'x'
+    for key, value in habits.items():
+        if value['habit'] == delhabit:
+            keytodelete = key
+    if keytodelete != 'x':
+        del habits[keytodelete]
+    with open('habit.json', 'w') as f:
+        json.dump(habits, f, indent=4)
