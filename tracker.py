@@ -1,7 +1,7 @@
 import json
 import datetime
 
-def add_habbit(habit, desc):
+def add_habit(habit, desc):
     with open('habit.json', 'r') as f:
         habits = json.load(f)
     new_habit = {len(habits):{
