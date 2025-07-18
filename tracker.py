@@ -7,7 +7,7 @@ def print_habits():
         habits = json.load(f)
     print("HabTrack\n")
     for key, value in habits.items():    
-        print(f"{value['habit']}-{value['description']}\nStreak: {value['streak']}\n")
+        print(f"{key}. {value['habit']}-{value['description']}\nStreak: {value['streak']}\n")
 
 def add_habit(habit, desc):
     try:
