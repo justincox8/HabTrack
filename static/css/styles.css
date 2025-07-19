@@ -1,0 +1,88 @@
+@font-face {
+    font-family: 'Philly Sans';
+    src: url('fonts/PhillySans-Regular.woff2') format('woff2'),
+        url('fonts/PhillySans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+h1.title{
+    color: #32936f;
+    text-align: center;
+    font-family: "Philly Sans", sans-serif;
+    font-size: 64px;
+    margin-top: -10px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -115%);
+    position: absolute;
+}
+
+form.addhab{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+}
+
+input[type="text"] {
+    border-radius: 21px;
+    border: 0;
+    background-color: #32936f;
+    padding: 10px;
+}
+input[type="text"]::placeholder{
+    font-style: italic;
+    font-size: medium;
+    opacity: 0.8;
+    text-align: left;
+    line-height: 0.5;
+    color: #e6e6e6;
+    font-family: sans-serif;
+    
+}
+
+#habname {
+    width:200px;
+    height: 20px;
+}
+
+#habdescription {
+    width:200px;
+    height: 50px;
+}
+
+input:focus{
+    outline: none;
+}
+
+h2.subtitle {
+    color: #32936f;
+    text-align: center;
+    font-family: "Philly Sans", sans-serif;
+    font-size: 32px;
+
+}
+
+body {
+    background: #e6e6e6;
+
+}
+
+button.add {
+    font-style: bold;
+    font-size: medium;
+    opacity: 0.8;
+    line-height: 0.5;
+    color: #e6e6e6;
+    font-family: sans-serif;
+    border-radius: 21px;
+    
+}

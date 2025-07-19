@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel ="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+
+</head>
+<body>
+    <h1 class="title">HabTrack</h1>
+    <div class="container">
+        <form class="addhab">
+            <h2 class="subtitle">Add Habit</h2>
+            <input type="text" placeholder="Habit name" id="habname">
+            <input type="text" placeholder="Habit description" id="habdescription">
+            <button class="add">Add Habit</button>
+        </form>
+        
+    </div>
+</body>
+</html>

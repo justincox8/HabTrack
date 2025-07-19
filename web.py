@@ -1,8 +1,13 @@
-from flask import Flask
+from flask import Flask, render_template
+
 
 app = Flask(__name__)
 
 @app.route("/")
+def index():
+    return render_template('index.html')
 
-def test():
-    return("<p>Balls<p>")
+@app.route("/addhabit")
+def add_habit():
+    return render_template('add.html')
+    
