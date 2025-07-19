@@ -77,12 +77,13 @@ body {
 }
 
 button.add {
-    font-style: bold;
-    font-size: medium;
-    opacity: 0.8;
-    line-height: 0.5;
+    background-color: #32936f;
     color: #e6e6e6;
+    border-radius: 5px;
     font-family: sans-serif;
-    border-radius: 21px;
-    
+    width: 85px;
+    outline: none;
+    border: 0;
+    align-self: center;
+    padding: 5px;
 }
