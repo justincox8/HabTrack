@@ -10,11 +10,11 @@
 <body>
     <h1 class="title">HabTrack</h1>
     <div class="container">
-        <form class="addhab">
+        <form class="addhab" action="/submit" method="post">
             <h2 class="subtitle">Add Habit</h2>
-            <input type="text" placeholder="Habit name" id="habname">
-            <input type="text" placeholder="Habit description" id="habdescription">
-            <button class="add">Add Habit</button>
+            <input type="text" placeholder="Habit name" id="habname" name="habname">
+            <input type="text" placeholder="Habit description" id="habdescription" name="habdescription">
+            <button class="add" type="submit">Add Habit</button>
         </form>
         
     </div>

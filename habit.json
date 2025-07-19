@@ -1,1 +1,22 @@
-{}
+{
+    "1": {
+        "habit": "a",
+        "description": "a",
+        "streak": 0
+    },
+    "2": {
+        "habit": "b",
+        "description": "b",
+        "streak": 0
+    },
+    "3": {
+        "habit": "c",
+        "description": "c",
+        "streak": 0
+    },
+    "4": {
+        "habit": "d",
+        "description": "c",
+        "streak": 0
+    }
+}
