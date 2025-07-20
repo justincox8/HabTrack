@@ -119,3 +119,28 @@ div.habitcointainer {
     border-radius: 5px;
 }
 
+div.buttoncontainer {
+    display: flex;
+    justify-content: right;
+    flex-direction: column;
+    gap: 5px;
+
+}
+
+button.increase {
+    background-color: #32936f;
+    border-radius: 5px;
+    color: #e6e6e6;
+    border:none;
+    width: 30px;
+    height: 30px;
+}
+
+button.delete {
+    background-color: #32936f;
+    border-radius: 5px;
+    color: #e6e6e6;
+    border:none;
+    width: 30px;
+    height: 30px;
+}

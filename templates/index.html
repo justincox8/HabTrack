@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel ="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
-
+    <script src="https://kit.fontawesome.com/7dde2b3111.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <h1 class="title">HabTrack</h1>
@@ -25,8 +25,11 @@
             <h3 class="habit">{{ value['habit'] }}</h3>
             <p class="habdesc"> {{ value['description']}}</p>
             <form action="/submit" method="post" >
-                <button class="increase">increase</button>
-                <button class="delete" type="submit">delete</button>
+                <div class="buttoncontainer">
+                    <button class="increase" type="submit"><i class="fa-solid fa-plus"></i></button>
+                    <button class="delete" type="submit"><i class="fa-solid fa-trash"></i></button>
+                </div>
+                
             </form>
         </div>
     {% endfor %}
