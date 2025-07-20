@@ -9,6 +9,14 @@ def print_habits():
     for key, value in habits.items():    
         print(f"{key}. {value['habit']}-{value['description']}\nStreak: {value['streak']}\n")
 
+def get_habits():
+    try:
+        with open('habit.json', 'r') as f:
+            habits = json.load(f)
+    except json.decoder.JSONDecodeError:
+        habits = {}
+    return habits
+
 def add_habit(habit, desc):
     try:
         with open('habit.json', 'r') as f:

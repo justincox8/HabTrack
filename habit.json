@@ -1,22 +1,12 @@
 {
     "1": {
-        "habit": "a",
-        "description": "a",
+        "habit": "working out",
+        "description": "going to the gym maybe going on runs",
         "streak": 0
     },
     "2": {
-        "habit": "b",
-        "description": "b",
-        "streak": 0
-    },
-    "3": {
-        "habit": "c",
-        "description": "c",
-        "streak": 0
-    },
-    "4": {
-        "habit": "d",
-        "description": "c",
+        "habit": "coding",
+        "description": "honing my skills and coding every day",
         "streak": 0
     }
 }

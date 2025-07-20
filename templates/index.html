@@ -18,5 +18,18 @@
         </form>
         
     </div>
+
+    <div class="allhabits">
+        {% for key, value in habits.items() %}
+        <div class="habitcointainer">
+            <h3 class="habit">{{ value['habit'] }}</h3>
+            <p class="habdesc"> {{ value['description']}}</p>
+            <form action="/submit" method="post" >
+                <button class="increase">increase</button>
+                <button class="delete" type="submit">delete</button>
+            </form>
+        </div>
+    {% endfor %}
+    </div>
 </body>
 </html>

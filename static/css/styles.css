@@ -6,6 +6,14 @@
     font-style: normal;
     font-display: swap;
 }
+
+@font-face {
+    font-family: 'Montserrat Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Montserrat Regular'), url('fonts/Montserrat-Regular.woff') format('woff');
+    }
+
 h1.title{
     color: #32936f;
     text-align: center;
@@ -68,6 +76,7 @@ h2.subtitle {
     text-align: center;
     font-family: "Philly Sans", sans-serif;
     font-size: 32px;
+    margin-bottom: -5px;
 
 }
 
@@ -87,3 +96,26 @@ button.add {
     align-self: center;
     padding: 5px;
 }
+
+h3.habit {
+    font-family: "Montserrat Regular";
+    color: #32936f;
+    margin-top: 3px;
+    margin-left: 3px;
+}
+
+p.habdesc {
+    font-family: "Montserrat Regular";
+    font-size: medium;
+    font-style: italic;
+}
+div.allhabits {
+    margin-top: 260px;
+}
+
+div.habitcointainer {
+    display:absolute;
+    background-color: #A5A9B4;
+    border-radius: 5px;
+}
+
