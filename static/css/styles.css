@@ -102,6 +102,7 @@ h3.habit {
     color: #32936f;
     margin-top: 3px;
     margin-left: 3px;
+    font-weight: bolder;
 }
 
 p.habdesc {
@@ -113,19 +114,23 @@ div.allhabits {
     margin-top: 260px;
 }
 
-div.habitcointainer {
-    display:absolute;
-    background-color: #A5A9B4;
+div.habitcontainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;            
+    background-color: #dcdcdc;
     border-radius: 5px;
+    gap: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
 }
 
 div.buttoncontainer {
     display: flex;
-    justify-content: right;
     flex-direction: column;
     gap: 5px;
-
 }
+
 
 button.increase {
     background-color: #32936f;
@@ -144,3 +149,16 @@ button.delete {
     width: 30px;
     height: 30px;
 }
+
+div.habinfo {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+p.streak {
+    font-family: "Montserrat Regular";
+    font-size: medium;
+    font-style: italic;
+}
+

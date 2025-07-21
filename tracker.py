@@ -47,12 +47,14 @@ def delete_habit(delhabit):
         json.dump(habits, f, indent=4)
     print_habits()
 
-def increase_streak():
-    habtoincrease = input("Please input the number of the habit you would like to increase: ")
+def increase_streak(habittoincrease):
     habits = {}
     with open('habit.json', 'r') as f:
         habits = json.load(f)
-    habits[habtoincrease]['streak'] +=1
+
+    for key, value in habits.items():
+        if value['habit'] == habittoincrease:
+            habits[key]['streak'] +=1
     with open('habit.json', 'w') as f:
         json.dump(habits, f, indent=4)
     print_habits()

@@ -21,17 +21,21 @@
 
     <div class="allhabits">
         {% for key, value in habits.items() %}
-        <div class="habitcointainer">
-            <h3 class="habit">{{ value['habit'] }}</h3>
-            <p class="habdesc"> {{ value['description']}}</p>
-            <form action="/submit" method="post" >
-                <div class="buttoncontainer">
-                    <button class="increase" type="submit"><i class="fa-solid fa-plus"></i></button>
-                    <button class="delete" type="submit"><i class="fa-solid fa-trash"></i></button>
-                </div>
-                
+        <div class="habitcontainer">
+            <div class="habinfo">
+              <h3 class="habit">{{ value['habit'] }}</h3>
+              <p class="habdesc">{{ value['description'] }}</p>
+              <p class="streak">Streak: {{ value['streak'] }}</p>
+            </div>
+            <form action="/update" method="post">
+                <input type="hidden" name="habit_id" value="{{ value['habit'] }}">
+              <div class="buttoncontainer">
+                <button class="increase" type="submit" name="action" value="increase"><i class="fa-solid fa-plus"></i></button>
+                <button class="delete" type="submit" name="action" value="delete"><i class="fa-solid fa-trash"></i></button>
+              </div>
             </form>
-        </div>
+          </div>
+          
     {% endfor %}
     </div>
 </body>
