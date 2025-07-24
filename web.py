@@ -7,6 +7,7 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     habits = get_habits()
+    check_streaks()
     return render_template('index.html', habits=habits)
 
 @app.route('/submit', methods=['POST'])
@@ -20,7 +21,6 @@ def submit_habit():
 def update_habits():
     habit_id = request.form.get('habit_id')
     action = request.form.get('action')
-    print(f"POST received -> Action: {action} | Habit ID: {habit_id}") 
 
     if action == 'delete':
         delete_habit(habit_id)

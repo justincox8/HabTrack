@@ -14,6 +14,15 @@
     src: local('Montserrat Regular'), url('fonts/Montserrat-Regular.woff') format('woff');
     }
 
+    
+@font-face {
+    font-family: 'Jersey M54';
+    src: url('fonts/JerseyM54.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 h1.title{
     color: #32936f;
     text-align: center;
@@ -45,6 +54,11 @@ input[type="text"] {
     border: 0;
     background-color: #32936f;
     padding: 10px;
+}
+
+input,textarea{
+    font-family: "Montserrat Regular";
+    color: #e6e6e6;
 }
 input[type="text"]::placeholder{
     font-style: italic;
@@ -98,7 +112,7 @@ button.add {
 }
 
 h3.habit {
-    font-family: "Montserrat Regular";
+    font-family: "Philly Sans";
     color: #32936f;
     margin-top: 3px;
     margin-left: 3px;
@@ -160,5 +174,46 @@ p.streak {
     font-family: "Montserrat Regular";
     font-size: medium;
     font-style: italic;
+}
+
+div.streakcontainer {
+    position: relative;
+    height: 24px;
+    width: 24px;
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    justify-content: center;
+}
+
+.fa-fire {
+    color: #ff8c00;
+    font-size: 32px;
+    z-index: 1;
+    position: relative;
+}
+
+.streakvalue {
+    font-family: "Philly Sans";
+    font-size: 18px;
+    z-index: 2;
+    position: absolute ;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-weight: bolder;
+    color: #e6e6e6;
+}
+
+.streakbg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 20px;
+    width: 20px;
+    background-color: #ff8c00;
+    border-radius: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 0;
 }
 
