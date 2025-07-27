@@ -123,9 +123,10 @@ p.habdesc {
     font-family: "Montserrat Regular";
     font-size: medium;
     font-style: italic;
+    margin-top: -8px;
 }
 div.allhabits {
-    margin-top: 260px;
+    margin-top: 350px;
 }
 
 div.habitcontainer {
