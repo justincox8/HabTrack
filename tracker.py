@@ -1,5 +1,6 @@
 import json
 import datetime
+import os
 
 def print_habits():
     habits = {}
@@ -10,6 +11,10 @@ def print_habits():
         print(f"{key}. {value['habit']}-{value['description']}\nStreak: {value['streak']}\n")
 
 def get_habits():
+    if not os.path.isfile('habit.json'):
+        habits = {}
+        with open('habit.json', 'w') as f:
+            json.dump(habits, f, indent=4)
     try:
         with open('habit.json', 'r') as f:
             habits = json.load(f)
