@@ -57,12 +57,12 @@ def delete_habit(delhabit):
 
 def increase_streak(habittoincrease):
     habits = {}
-    date = datetime.datetime.day
+    date = datetime.datetime.now()
     with open('habit.json', 'r') as f:
         habits = json.load(f)
 
     for key, value in habits.items():
-        if value['habit'] == habittoincrease and value['day'] != date:
+        if value['habit'] == habittoincrease and value['day'] != date.day:
             habits[key]['streak'] +=1
     with open('habit.json', 'w') as f:
         json.dump(habits, f, indent=4)
