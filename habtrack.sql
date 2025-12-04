@@ -13,6 +13,7 @@ create table habits (
     habit varchar(50) not null,
     descr text,
     streak int default 0,
+    last_day Date,
     foreign key (user_id) references users(id) on delete cascade
 );
 

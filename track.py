@@ -34,4 +34,25 @@ def get_user(username):
     cnx.close()
     return rows
 
-print(get_user('leila'))
+def get_habits(user_id):
+    cnx = get_connection()
+    cursor = cnx.cursor()
+    cursor.execute("SELECT * FROM habits WHERE user_id=%s", (user_id,))
+    row = cursor.fetchall()
+    return row
+
+def add_habit(user_id, habit, description):
+    cnx = get_connection()
+    cursor = cnx.cursor()
+    cursor.execute("INSERT INTO habits (user_id, habit, descr, streak, last_day) VALUES (%s, %s, %s, %s, %s)", (user_id, habit, description, 0, datetime.now().date()))
+    cnx.commit()
+    cursor.close()
+    cnx.close()
+
+def delete_habit(user_id, habit_id):
+    cnx = get_connection()
+    cursor = cnx.cursor()
+    cursor.execute("DELETE FROM habits WHERE user_id=%s AND id=%s", (user_id, habit_id))
+    cnx.commit()
+    cursor.close()
+    cnx.close()
