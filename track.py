@@ -25,12 +25,13 @@ def create_user(username,password):
     cursor.close()
     cnx.close()
 
-cnx = get_connection()
-cursor = cnx.cursor()
-cursor.execute("SELECT * FROM users")
-rows = cursor.fetchall()
-for t in rows:
-    print(t)
-cursor.close()
-cnx.close()
+def get_user(username):
+    cnx = get_connection()
+    cursor = cnx.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM users WHERE username=%s", (username,))
+    rows = cursor.fetchone()
+    cursor.close()
+    cnx.close()
+    return rows
 
+print(get_user('leila'))
