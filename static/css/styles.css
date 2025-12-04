@@ -38,7 +38,7 @@ h1.title{
     align-items: center;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -115%);
+    transform: translate(-50%, -175%);
     position: absolute;
 }
 
@@ -56,7 +56,7 @@ input[type="text"] {
     padding: 10px;
 }
 
-input,textarea{
+input.textarea{
     font-family: "Montserrat Regular";
     color: #e6e6e6;
 }
@@ -138,6 +138,7 @@ div.habitcontainer {
     gap: 5px;
     padding: 10px;
     margin-bottom: 15px;
+    
 }
 
 div.buttoncontainer {
