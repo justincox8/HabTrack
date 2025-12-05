@@ -56,3 +56,22 @@ def delete_habit(user_id, habit_id):
     cnx.commit()
     cursor.close()
     cnx.close()
+
+def increase_streak(habit_id, user_id):
+    today = datetime.today().date()
+    cnx = get_connection()
+    cursor = cnx.cursor()
+    cursor.execute("SELECT streak, last_day FROM habits WHERE user_id=%s AND id=%s", (user_id, habit_id))
+    row = cursor.fetchone()
+    if row:
+        streak, last_day = row
+        if last_day != today:
+            cursor.execute("UPDATE habits SET streak=%s, last_day=%s WHERE user_id=%s AND id=%s", (streak+1, last_day, user_id,habit_id))
+            cnx.commit()
+        else:
+            print("cant increase streak twice in one day")
+    cursor.close()
+    cnx.close()
+
+increase_streak(4,1)
+print(get_habits(1))
