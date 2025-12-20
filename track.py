@@ -1,8 +1,7 @@
 import mysql.connector
 from datetime import datetime
-from dotenv import load_dotenv
 import os
-
+from dotenv import load_dotenv
 
 load_dotenv()
 
