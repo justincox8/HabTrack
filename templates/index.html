@@ -8,6 +8,7 @@
     <script src="https://kit.fontawesome.com/7dde2b3111.js" crossorigin="anonymous"></script>
 </head>
 <body>
+  <button class="link-button"><a href="{{ url_for('logout') }}" class="rslink" >Logout</a></button>
     <h1 class="title">HabTrack</h1>
     <div class="container">
         <form class="addhab" action="/submit" method="post" autocomplete="off">
@@ -19,21 +20,20 @@
         
     </div>
 
-    <div class="allhabits">
-       {% for i in habits %} 
-      {% for key, value in i.items() %}
-        <div class="habitcontainer">
-            <div class="habinfo">
-              <h3 class="habit">{{ value['habit'] }}</h3>
-              <p class="habdesc">{{ value['description'] }}</p>
-              <div class="streakcontainer">
+    <div class="allhabits"> 
+        {% for habit in habits %}
+          <div class="habitcontainer">
+              <div class="habinfo">
+                <h3 class="habit">{{ habit.habit }}</h3>
+                <p class="habdesc">{{ habit.descr }}</p>
+                <div class="streakcontainer">
                 <div class="streakbg"></div>
                 <div class="streakicon"><i class="fa-solid fa-fire"></i></div>
-                <div class="streakvalue">{{ value['streak'] }}</div>
+                <div class="streakvalue">{{ habit.streak }}</div>
               </div>
             </div>
             <form action="/update" method="post">
-                <input type="hidden" name="habit_id" value="{{ value['habit'] }}">
+                <input type="hidden" name="habit_id" value="{{ habit.id }}">
               <div class="buttoncontainer">
                 <button class="increase" type="submit" name="action" value="increase"><i class="fa-solid fa-plus"></i></button>
                 <button class="delete" type="submit" name="action" value="delete"><i class="fa-solid fa-trash"></i></button>
@@ -41,8 +41,7 @@
             </form>
           </div>
           
-    {% endfor %}
-    {% endfor %}
+        {% endfor %}
     </div>
 </body>
 </html>

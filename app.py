@@ -41,6 +41,8 @@ def login():
             session['loggedin'] = True
             session['id'] = account['id']
             session['username'] = account['username']
+            print(session['id'])
+            print(get_habits(session['id']))
             return render_template('index.html', msg='logged in successfully', habits=get_habits(account['id']))
         else:
             msg = 'incorrect username/password'
@@ -73,11 +75,22 @@ def register():
             msg = 'Logged in succsesfully'
             return redirect(url_for('login'))
     return render_template('register.html', msg=msg)
+
+@app.route('/logout')
+def logout():
+    session.pop('loggedin', None)
+    session.pop('id', None)
+    session.pop('username', None)
+    return redirect(url_for('login'))
+
+@app.route('/home', methods=['GET', 'POST'])
+def index():
+    return render_template('index.html',habits=get_habits(session['id']))
 @app.route('/submit', methods=['POST'])
 def submit_habit():
     hab = request.form['habname']
     habdescription = request.form['habdescription']
-    add_habit(hab, habdescription)
+    add_habit(session['id'],hab, habdescription)
     return redirect(url_for('index'))
 
 @app.route('/update', methods=['POST'])
@@ -86,9 +99,9 @@ def update_habits():
     action = request.form.get('action')
 
     if action == 'delete':
-        delete_habit(habit_id)
+        delete_habit(session['id'],habit_id)
     elif action == 'increase':
-        increase_streak(habit_id)
+        increase_streak(session['id'], habit_id)
     return redirect(url_for('index'))
     
 
