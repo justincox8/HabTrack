@@ -20,7 +20,8 @@
     </div>
 
     <div class="allhabits">
-        {% for key, value in habits.items() %}
+       {% for i in habits %} 
+      {% for key, value in i.items() %}
         <div class="habitcontainer">
             <div class="habinfo">
               <h3 class="habit">{{ value['habit'] }}</h3>
@@ -40,6 +41,7 @@
             </form>
           </div>
           
+    {% endfor %}
     {% endfor %}
     </div>
 </body>

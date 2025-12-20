@@ -35,7 +35,7 @@ def get_user(username):
 
 def get_habits(user_id):
     cnx = get_connection()
-    cursor = cnx.cursor()
+    cursor = cnx.cursor(dictionary=True)
     cursor.execute("SELECT * FROM habits WHERE user_id=%s", (user_id,))
     row = cursor.fetchall()
     return row
@@ -72,5 +72,4 @@ def increase_streak(habit_id, user_id):
     cursor.close()
     cnx.close()
 
-increase_streak(4,1)
-print(get_habits(1))
+print(get_habits(4))

@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for, session
-from tracker import *
+from track import *
 from dotenv import load_dotenv
 import mysql.connector
+from werkzeug.security import generate_password_hash, check_password_hash
+import re
 
 load_dotenv()
 
@@ -16,6 +18,11 @@ DB_CONFIG = {
 def get_connection():
     return mysql.connector.connect(**DB_CONFIG)
 
+def set_password(password):
+   return generate_password_hash(password, method='scrypt', salt_length=16)
+
+def check_password(hashed_password, password):
+    return check_password_hash(hashed_password, password)
 app = Flask(__name__)   
 app.secret_key = os.getenv('SECRET_KEY')
 
@@ -27,25 +34,45 @@ def login():
         username = request.form['username']
         password = request.form['password']
         cnx = get_connection()
-        cursor = cnx.cursor()
-        cursor.execute("SELECT * FROM users WHERE username=%s AND password=%s", (username,password))
+        cursor = cnx.cursor(dictionary=True)
+        cursor.execute("SELECT * FROM users WHERE username=%s", (username,))
         account = cursor.fetchone()
-        print(account)
-        if account:
+        if check_password(account['password'], password) == True:
             session['loggedin'] = True
-            session['id'] = account[0]
-            session['username'] = account[1]
-            return render_template('index.html', msg='logged in successfully')
+            session['id'] = account['id']
+            session['username'] = account['username']
+            return render_template('index.html', msg='logged in successfully', habits=get_habits(account['id']))
         else:
             msg = 'incorrect username/password'
 
     return render_template('login.html',msg=msg)
 @app.route('/register', methods=['POST', 'GET'])
 def register():
+    msg = ''
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
         username = request.form['username']
         password = request.form['password']
-    return render_template('register.html')
+        cnx = get_connection()
+        cursor = cnx.cursor()
+        cursor.execute('SELECT * FROM users WHERE username = %s', (username,))
+        account = cursor.fetchone()
+        if account:
+            msg = 'Account already exists!'
+            print('account exists')
+        elif not re.match(r'[A-Za-z0-9]+', username):
+            msg = 'Username must contain only letters and numbers!'
+            print('letters or nums')
+        elif not username or not password:
+            msg = 'Please fill out the form!'
+            print('blank')
+        else:
+            print('made it')
+            password = set_password(password)
+            cursor.execute("INSERT INTO users (username,password) VALUES (%s, %s)", (username, password))
+            cnx.commit()
+            msg = 'Logged in succsesfully'
+            return redirect(url_for('login'))
+    return render_template('register.html', msg=msg)
 @app.route('/submit', methods=['POST'])
 def submit_habit():
     hab = request.form['habname']
