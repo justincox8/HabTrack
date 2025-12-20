@@ -7,7 +7,7 @@ A web application built with Flask in which users can track daily habits by addi
 ## Tech Stack
 - Python (Flask)
 - HTML5, CSS3
-- JSON
+- MYSQL
 
 ## Features
 - View, Add, and Delete habits
