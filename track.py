@@ -59,7 +59,7 @@ def delete_habit(user_id, habit_id):
     cursor.close()
     cnx.close()
 
-def increase_streak(user_id, habit_id):
+def increase_streak(habit_id, user_id):
     today = datetime.today().date()
     cnx = get_connection()
     cursor = cnx.cursor(cursor_factory=RealDictCursor)
@@ -68,6 +68,7 @@ def increase_streak(user_id, habit_id):
     if row:
         streak, last_day = row
         if last_day != today:
+            print(streak)
             cursor.execute("UPDATE habits SET streak=%s, last_day=%s WHERE user_id=%s AND id=%s", (streak+1, today, user_id,habit_id))
             cnx.commit()
         else:

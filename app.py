@@ -88,10 +88,12 @@ def update_habits():
     habit_id = request.form.get('habit_id')
     action = request.form.get('action')
 
+    habit_id = int(habit_id)
+    user_id = int(session['id'])
     if action == 'delete':
-        delete_habit(session['id'],habit_id)
+        delete_habit(user_id,habit_id)
     elif action == 'increase':
-        increase_streak(session['id'], habit_id)
+        increase_streak(habit_id, user_id)
     return redirect(url_for('index'))
     
 
