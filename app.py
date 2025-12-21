@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from track import *
 from dotenv import load_dotenv
-import mysql.connector
 from werkzeug.security import generate_password_hash, check_password_hash
 import re
 load_dotenv()
@@ -61,6 +60,7 @@ def register():
             cursor.execute("INSERT INTO users (username,password) VALUES (%s, %s)", (username, password))
             cnx.commit()
             msg = 'Logged in succsesfully'
+            cursor.close()
             return redirect(url_for('login'))
     return render_template('register.html', msg=msg)
 
