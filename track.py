@@ -66,9 +66,9 @@ def increase_streak(habit_id, user_id):
     cursor.execute("SELECT streak, last_day FROM habits WHERE user_id=%s AND id=%s", (user_id, habit_id))
     row = cursor.fetchone()
     if row:
-        streak, last_day = row
+        streak = row['streak']
+        last_day =row['last_day']
         if last_day != today:
-            print(streak)
             cursor.execute("UPDATE habits SET streak=%s, last_day=%s WHERE user_id=%s AND id=%s", (streak+1, today, user_id,habit_id))
             cnx.commit()
         else:
