@@ -56,7 +56,7 @@ def delete_habit(user_id, habit_id):
     cursor.close()
     cnx.close()
 
-def increase_streak(habit_id, user_id):
+def increase_streak(user_id, habit_id):
     today = datetime.today().date()
     cnx = get_connection()
     cursor = cnx.cursor()
@@ -71,5 +71,3 @@ def increase_streak(habit_id, user_id):
             print("cant increase streak twice in one day")
     cursor.close()
     cnx.close()
-
-print(get_habits(4))

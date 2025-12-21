@@ -4,19 +4,7 @@ from dotenv import load_dotenv
 import mysql.connector
 from werkzeug.security import generate_password_hash, check_password_hash
 import re
-
 load_dotenv()
-
-DB_CONFIG = {
-    'host': os.getenv('DB_HOST'),
-    'user': os.getenv('DB_USER'),
-    'password': os.getenv('DB_PASS'),
-    'database': os.getenv('DB_NAME')
-    
-}
-
-def get_connection():
-    return mysql.connector.connect(**DB_CONFIG)
 
 def set_password(password):
    return generate_password_hash(password, method='scrypt', salt_length=16)
