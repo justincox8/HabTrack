@@ -3,6 +3,8 @@ from track import *
 from dotenv import load_dotenv
 from werkzeug.security import generate_password_hash, check_password_hash
 import re
+import psycopg2
+from psycopg2.extras import RealDictCursor
 load_dotenv()
 
 def set_password(password):
@@ -21,7 +23,7 @@ def login():
         username = request.form['username']
         password = request.form['password']
         cnx = get_connection()
-        cursor = cnx.cursor(dictionary=True)
+        cursor = cnx.cursor(cursor_factory=RealDictCursor)
         cursor.execute("SELECT * FROM users WHERE username=%s", (username,))
         account = cursor.fetchone()
         if check_password(account['password'], password) == True:
@@ -42,7 +44,7 @@ def register():
         username = request.form['username']
         password = request.form['password']
         cnx = get_connection()
-        cursor = cnx.cursor()
+        cursor = cnx.cursor(cursor_factory=RealDictCursor)
         cursor.execute('SELECT * FROM users WHERE username = %s', (username,))
         account = cursor.fetchone()
         if account:
