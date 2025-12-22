@@ -251,6 +251,9 @@ input.lrform-inp {
     height: 50px;
     width: 300px;
     border-style: solid;
+    font-family: "Philly Sans", sans-serif !important;
+    font-size: 20px;
+    padding-left: 14px;
     
 }
 
@@ -265,15 +268,12 @@ input.lrform-inp {
 .lrform-inp:focus {
     font-family: "Philly Sans", sans-serif;
     color: #141414;
-    margin-left: 10px;
+    font-size: 20px;
     font-weight: bold;
-    border-color: black;
-    border-width: 3px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    height: 50px;
-    width: 300px;
-    border-style: solid;
+    padding-left: 14px;           
+    box-sizing: border-box;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(50, 147, 111, 0.5);
 }
 h2.lrhead {
     color: #32936f;
