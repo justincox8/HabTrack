@@ -49,18 +49,18 @@ form.addhab{
     gap: 10px;
 }
 
-.form-inputs input[type="text"] {
+.form-inputs{
     border-radius: 21px;
     border: 0;
     background-color: #32936f;
     padding: 10px;
 }
 
-input.textarea{
+.form-inputs.textarea{
     font-family: "Montserrat Regular";
     color: #e6e6e6;
 }
-.form-inputs input[type="text"]::placeholder{
+.form-inputs::placeholder{
     font-style: italic;
     font-size: medium;
     opacity: 0.8;

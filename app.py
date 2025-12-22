@@ -35,6 +35,7 @@ def login():
             return render_template('index.html', msg='logged in successfully', habits=get_habits(account['id']))
         else:
             msg = 'incorrect username/password'
+            return render_template('login.html',msg=msg)
 
     return render_template('login.html',msg=msg)
 @app.route('/register', methods=['POST', 'GET'])
