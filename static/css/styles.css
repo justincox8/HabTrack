@@ -54,6 +54,13 @@ form.addhab{
     border: 0;
     background-color: #32936f;
     padding: 10px;
+    font-style: italic;
+    font-size: medium;
+    opacity: 0.8;
+    text-align: left;
+    line-height: 0.5;
+    color: #e6e6e6;
+    font-family: sans-serif;
 }
 
 .form-inputs.textarea{
