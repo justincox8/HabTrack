@@ -4,14 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Live Server fallback -->
+    <link rel="stylesheet" href="/static/css/styles.css">
+
+    <!-- Flask (overrides when rendered) -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
 </head>
 <body>
-    <form method="POST">
-        <input type="text" name="username" placeholder="Username" autocomplete="off" required>
-        <input type="password" name="password" placeholder="Password" autocomplete="off" required>
-        <button type="submit">Login</button>
-    </form>
-    <p class="new">Dont have an account?</p>
-    <button><a href="{{ url_for('register') }}" class="rslink">Register</a></button>
+    <div class="fcontainer">
+        <h2 class="lrhead">Log In</h2>
+        <form class="lrform" method="POST">
+            <input class="lrform-inp" type="text" name="username" placeholder="Username" autocomplete="off" required>
+            <input class="lrform-inp"type="password" name="password" placeholder="Password" autocomplete="off" required>
+            <button class="lrbutton" type="submit">Login</button>
+        </form>
+        <p class="new">Dont have an account?</p>
+        <a href="{{ url_for('register') }}" class="rslink">Register</a>
+    </div>
 </body>
 </html>

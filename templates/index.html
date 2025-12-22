@@ -8,13 +8,13 @@
     <script src="https://kit.fontawesome.com/7dde2b3111.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <button class="link-button"><a href="{{ url_for('logout') }}" class="rslink" >Logout</a></button>
+  <button class="logoutbutton"><a href="{{ url_for('logout') }}" class="rslink" >Logout</a></button>
     <h1 class="title">HabTrack</h1>
     <div class="container">
         <form class="addhab" action="/submit" method="post" autocomplete="off">
             <h2 class="subtitle">Add Habit</h2>
-            <input type="text" placeholder="Habit name" id="habname" name="habname">
-            <input type="text" placeholder="Habit description" id="habdescription" name="habdescription">
+            <input class="form-inputs" type="text" placeholder="Habit name" id="habname" name="habname">
+            <input class="form-inputs" type="text" placeholder="Habit description" id="habdescription" name="habdescription">
             <button class="add" type="submit">Add Habit</button>
         </form>
         

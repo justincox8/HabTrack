@@ -49,7 +49,7 @@ form.addhab{
     gap: 10px;
 }
 
-input[type="text"] {
+.form-inputs input[type="text"] {
     border-radius: 21px;
     border: 0;
     background-color: #32936f;
@@ -60,7 +60,7 @@ input.textarea{
     font-family: "Montserrat Regular";
     color: #e6e6e6;
 }
-input[type="text"]::placeholder{
+.form-inputs input[type="text"]::placeholder{
     font-style: italic;
     font-size: medium;
     opacity: 0.8;
@@ -219,3 +219,145 @@ div.streakcontainer {
     z-index: 0;
 }
 
+
+.fcontainer {
+    width: 500px;
+    background-color: #ffffff; 
+    border-radius: 8px; 
+    margin: 50px auto; 
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    height: 600px;
+}
+
+.lrform {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+input.lrform-inp {
+    border-color: black;
+    border-width: 3px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    height: 50px;
+    width: 300px;
+    border-style: solid;
+    
+}
+
+.lrform-inp::placeholder{
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
+    font-family: "Philly Sans", sans-serif;
+    color: #141414;
+}
+
+h2.lrhead {
+    color: #32936f;
+    text-align: center;
+    font-family: "Philly Sans", sans-serif;
+    font-size: 64px;
+    margin-bottom: 80px;
+    
+}
+
+.new{
+    color: #32936f;
+    text-align: center;
+    font-family: "Philly Sans", sans-serif;
+    margin-top:80px;
+    
+}
+
+.rslink {
+    display: inline-block;          
+    padding: 10px 20px;
+
+    border-radius: 8px;
+    background-color: #32936f;
+
+    font-family: "Philly Sans", sans-serif;
+    font-size: 20px;
+    color: #e6e6e6;
+
+    text-decoration: none;          
+    text-align: center;
+
+    cursor: pointer;                
+    transition: background-color 0.2s ease, transform 0.2s ease;
+
+}
+
+.rslink:hover {
+    background-color: #2a7c5d;
+    transform: translateY(-2px);
+}
+
+.rslink:active {
+    transform: translateY(0);
+}
+
+
+.lrbutton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #32936f;
+    
+
+    font-family: "Philly Sans", sans-serif;
+    font-size: 20px;
+    color: #e6e6e6;
+
+    text-decoration: none;          
+    text-align: center;
+
+    margin-top: 40px;
+    cursor: pointer;                
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.lrbutton:hover {
+    background-color: #2a7c5d;
+    transform: translateY(-2px);
+}
+
+.lrbutton:active {
+    transform: translateY(0);
+}
+
+.logoutbutton {
+    border: none;
+    border-radius: 8px;
+    background-color: #32936f;
+    border: none;
+    
+
+    font-family: "Philly Sans", sans-serif;
+    font-size: 5px;
+    color: #e6e6e6;
+
+    text-decoration: none;          
+    text-align: center;
+
+    margin-top: 10px;
+    margin-left: 10px;
+    cursor: pointer;                
+    transition: background-color 0.2s ease, transform 0.2s
+}
+
+.logoutbutton:hover {
+    background-color: #2a7c5d;
+    transform: translateY(-2px);
+}
+
+.logoutbutton:active {
+    transform: translateY(0);
+}
