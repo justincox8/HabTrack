@@ -26,6 +26,8 @@ def login():
         cursor = cnx.cursor(cursor_factory=RealDictCursor)
         cursor.execute("SELECT * FROM users WHERE username=%s", (username,))
         account = cursor.fetchone()
+        if account == None:
+            return(render_template('login.html', error="wrong username or password"))
         if check_password(account['password'], password) == True:
             session['loggedin'] = True
             session['id'] = account['id']
@@ -35,7 +37,6 @@ def login():
             return render_template('index.html', msg='logged in successfully', habits=get_habits(account['id']))
         else:
             msg = 'incorrect username/password'
-            return render_template('login.html',msg=msg)
 
     return render_template('login.html',msg=msg)
 @app.route('/register', methods=['POST', 'GET'])
