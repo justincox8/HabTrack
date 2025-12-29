@@ -29,6 +29,7 @@ h1.title{
     font-family: "Philly Sans", sans-serif;
     font-size: 64px;
     margin-top: -10px;
+    
 }
 
 .container {
@@ -40,6 +41,7 @@ h1.title{
     left: 50%;
     transform: translate(-50%, -175%);
     position: absolute;
+    margin-top: 100px;
 }
 
 form.addhab{
